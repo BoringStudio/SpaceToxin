@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271887072837516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.2026405, y: 1.08, z: 0}
+  m_LocalPosition: {x: -10.108831, y: 0.4493075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,8 +78,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0006225109, y: 0.27274173}
-  m_Size: {x: 0.15609813, y: 0.53929543}
+  m_Offset: {x: -0.004410267, y: 0.33481085}
+  m_Size: {x: 0.2735262, y: 0.6634337}
   m_Direction: 0
 --- !u!95 &95049725549199970
 Animator:
@@ -111,7 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 0
-  BreakForce: 1500
   Anchor: {x: 0.0105929375, y: 0.21980762}
   CurrentInteractable: {fileID: 0}
 --- !u!114 &114934443411682528
@@ -189,7 +188,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 5.2026405, y: 1.08}
+  m_ConnectedAnchor: {x: -10.108831, y: 0.4493075}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
