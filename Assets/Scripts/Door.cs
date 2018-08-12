@@ -7,7 +7,8 @@ public class Door : MonoBehaviour {
     [Header("Initial values")]
     public bool InitiallyClosed = true;
 
-    public bool IsСlosed {
+    public bool IsClosed
+    {
         get
         {
             return m_isClosed;
@@ -17,20 +18,21 @@ public class Door : MonoBehaviour {
             if (m_animators == null) return;
 
             m_isClosed = value;
+
             foreach (Animator animator in m_animators)
             {
-                animator.SetBool("Closed", m_isClosed);
+                animator.SetBool("Closed", value);
             }
         }
     }
     private bool m_isClosed = false;
 
     private Animator[] m_animators;
-    
-	void Start()
+
+    void Start()
     {
         m_animators = GetComponentsInChildren<Animator>();
         
-        IsСlosed = InitiallyClosed;
+        IsClosed = InitiallyClosed;
 	}
 }
