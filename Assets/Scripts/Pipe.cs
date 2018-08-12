@@ -111,10 +111,10 @@ public class Pipe : MonoBehaviour {
 			Rigidbody2D pipeSegment = Instantiate(PipeSegmentPrefab);
             m_hingeJoints[i] = pipeSegment.GetComponent<HingeJoint2D>();
 
-            m_hingeJoints[i].useLimits = i != 0;
+            //m_hingeJoints[i].useLimits = i != 0;
 
-			pipeSegment.transform.parent = transform;
-			pipeSegment.transform.localPosition = new Vector2(StartOffset + SegmentOffset * i, 0.0f);
+			pipeSegment.transform.parent = lastSegment.transform;
+			pipeSegment.transform.localPosition = new Vector2(i == 0 ? StartOffset : SegmentOffset, 0.0f);
 
             m_hingeJoints[i].connectedBody = lastSegment;
 			lastSegment = pipeSegment;
@@ -125,8 +125,8 @@ public class Pipe : MonoBehaviour {
         m_hingeJoints[SegmentCount] = pipeEnd.GetComponent<HingeJoint2D>();
         m_hingeJoints[SegmentCount].useLimits = true;
 
-		pipeEnd.transform.parent = transform;
-		pipeEnd.transform.localPosition = new Vector2(StartOffset + SegmentOffset * SegmentCount, 0.0f);
+		pipeEnd.transform.parent = lastSegment.transform;
+        pipeEnd.transform.localPosition = new Vector2(SegmentOffset, 0.0f);
 
         m_hingeJoints[SegmentCount].connectedBody = lastSegment;
 

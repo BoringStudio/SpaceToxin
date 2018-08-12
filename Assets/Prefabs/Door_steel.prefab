@@ -19,7 +19,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4441643368829412}
+  - component: {fileID: 61718187122886448}
   - component: {fileID: 114210512737434876}
+  - component: {fileID: 114982638911776788}
   m_Layer: 0
   m_Name: Door_steel
   m_TagString: Untagged
@@ -102,6 +104,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61718187122886448
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1087766700299084}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1}
+  m_EdgeRadius: 0
 --- !u!95 &95155293521235496
 Animator:
   serializedVersion: 3
@@ -146,10 +173,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1087766700299084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3ba6af44273364eb7bb0e59c8afe49, type: 3}
+  m_Script: {fileID: 11500000, guid: fabeab3a47a1b8d45b1a7a3a1383fff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   InitiallyClosed: 1
+--- !u!114 &114982638911776788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1087766700299084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2a7e033af5dac4487e64d7df22edd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitiallyActivated: 1
 --- !u!212 &212615853364736054
 SpriteRenderer:
   m_ObjectHideFlags: 1
