@@ -13,7 +13,7 @@ public class DoorEditor : Editor
         DrawDefaultInspector();
 
         Door door = (Door)target;
-
+        
         if (GUILayout.Button("Toggle"))
         {
             door.IsClosed = !door.IsClosed;
@@ -26,6 +26,9 @@ public class DoorEditor : Editor
 
 [ExecuteInEditMode]
 public class Door : MonoBehaviour {
+    public AudioClip OpeningSound;
+    public AudioClip ClosingSound;
+
     [Header("Initial values")]
     public bool InitiallyClosed = true;
 
@@ -37,11 +40,16 @@ public class Door : MonoBehaviour {
         }
         set
         {
-            if (m_animators == null || m_isActivated == false) return;
-
             m_isClosed = value;
             m_collision.enabled = value;
 
+            if (m_audioSource != null)
+            {
+                if (value && OpeningSound != null) m_audioSource.PlayOneShot(OpeningSound);
+                if (!value && ClosingSound != null) m_audioSource.PlayOneShot(ClosingSound);
+            }
+
+            if (m_animators == null || m_isActivated == false) return;
 
             foreach (Animator animator in m_animators)
             {
@@ -62,11 +70,15 @@ public class Door : MonoBehaviour {
 
     private Collider2D m_collision;
     private Animator[] m_animators;
+    private AudioSource m_audioSource;
 
     void Start()
     {
         m_collision = GetComponent<Collider2D>();
         m_animators = GetComponentsInChildren<Animator>();
+        m_audioSource = GetComponent<AudioSource>();
+
+        if (m_audioSource) m_audioSource.Stop();
 
         m_isActivated = true;
         IsClosed = InitiallyClosed;

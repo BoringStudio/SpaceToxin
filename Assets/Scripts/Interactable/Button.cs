@@ -9,13 +9,24 @@ using UnityEditor;
 public class ButtonEditor : Editor
 {
     private bool m_lastButtonState = false;
+    private bool m_showSoundSelection = false;
 
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
         Button button = (Button)target;
-        
+
+        m_showSoundSelection = EditorGUILayout.Foldout(m_showSoundSelection, "Sounds");
+        if (m_showSoundSelection)
+        {
+            button.DeactivatedSound = EditorGUILayout.ObjectField("Deactivated", button.DeactivatedSound, typeof(AudioClip), true) as AudioClip;
+            button.PressSound = EditorGUILayout.ObjectField("Pressed", button.PressSound, typeof(AudioClip), true) as AudioClip;
+            button.ReleaseSound = EditorGUILayout.ObjectField("Released", button.ReleaseSound, typeof(AudioClip), true) as AudioClip;
+        }
+
+
+        //////////
         if (button.Mode == ButtonMode.Push)
         {
             bool buttonPressed = GUILayout.Button("Push");
@@ -40,6 +51,11 @@ public class ButtonEditor : Editor
         }
 
         GUILayout.Label("State: " + (button.IsPressed ? "Pressed" : "Released"));
+
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(button);
+        }
     }
 }
 #endif
@@ -50,15 +66,15 @@ public enum ButtonMode
     Toggle
 };
 
-[RequireComponent(typeof(SpriteRenderer), typeof(Switch))]
+
 public class Button : Interactable
 {
-    public Sprite DeactivatedOff;
-    public Sprite DeactivatedOn;
-    public Sprite ActivatedOff;
-    public Sprite ActivatedOn;
-
-    private SpriteRenderer m_renderer;
+    [HideInInspector]
+    public AudioClip DeactivatedSound;
+    [HideInInspector]
+    public AudioClip PressSound;
+    [HideInInspector]
+    public AudioClip ReleaseSound;
 
     [SerializeField]
     public ButtonMode Mode = ButtonMode.Push;
@@ -67,6 +83,9 @@ public class Button : Interactable
 
     public UnityEvent EventsOnPress = null;
     public UnityEvent EventsOnRelease = null;
+
+    private Animator m_animator;
+    private AudioSource m_audioSource;
 
     public bool IsActivated
     {
@@ -79,7 +98,7 @@ public class Button : Interactable
             if (m_isActivated != value)
             {
                 m_isActivated = value;
-                UpdateSprite();
+                m_animator.SetBool("Activated", value);
             }
         }
     }
@@ -96,7 +115,14 @@ public class Button : Interactable
             if (m_isPressed != value)
             {
                 m_isPressed = value;
-                UpdateSprite();
+
+                if (m_audioSource != null)
+                {
+                    if (value && PressSound != null) m_audioSource.PlayOneShot(PressSound);
+                    if (!value && ReleaseSound != null) m_audioSource.PlayOneShot(ReleaseSound);
+                }
+
+                m_animator.SetBool("Pressed", value);
             }
         }
     }
@@ -104,7 +130,8 @@ public class Button : Interactable
 
     void Start()
     {
-        m_renderer = GetComponent<SpriteRenderer>();
+        m_animator = GetComponent<Animator>();
+        m_audioSource = GetComponent<AudioSource>();
 
         IsActivated = true;
 
@@ -113,12 +140,7 @@ public class Button : Interactable
 
         activator.OnChangeState = (bool state) => { IsActivated = state; };
 
-        if (Mode == ButtonMode.Toggle && InitiallyPressed)
-        {
-            IsPressed = true;
-        }
-
-        UpdateSprite();
+        IsPressed = Mode == ButtonMode.Toggle && InitiallyPressed;
     }
 
     public override void OnInteractStart(Player player)
@@ -128,7 +150,7 @@ public class Button : Interactable
 
     public override void OnInteractEnd(Player player)
     {
-        Release();
+        if (Mode == ButtonMode.Push) Release();
     }
 
     public void Press()
@@ -139,27 +161,21 @@ public class Button : Interactable
             if (IsPressed && EventsOnPress != null) EventsOnPress.Invoke();
             if (!IsPressed && EventsOnRelease != null) EventsOnRelease.Invoke();
         }
+        else
+        {
+            if (m_audioSource != null)
+            {
+                m_audioSource.PlayOneShot(DeactivatedSound);
+            }
+        }
     }
 
     public void Release()
     {
         if (IsActivated)
         {
-            IsPressed = Mode == ButtonMode.Push ? false : IsPressed;
-            if (IsPressed && EventsOnPress != null) EventsOnPress.Invoke();
-            if (!IsPressed && EventsOnRelease != null) EventsOnRelease.Invoke();
-        }
-    }
-
-    public void UpdateSprite()
-    {
-        if (m_isActivated)
-        {
-            m_renderer.sprite = m_isPressed ? ActivatedOn : ActivatedOff;
-        }
-        else
-        {
-            m_renderer.sprite = m_isPressed ? DeactivatedOn : DeactivatedOff;
+            IsPressed = false;
+            if (EventsOnRelease != null) EventsOnRelease.Invoke();
         }
     }
 }
