@@ -71,8 +71,8 @@ public class Player : MonoBehaviour
 
     private AudioSource m_audioSource;
 
-    public DamageHUD DamageHUD;
-    public HPBar HPIndicator;
+    public DamageBar DamageHUD;
+    public HealthBar HPIndicator;
 
 	protected bool m_currentInteract = false;
 	protected bool m_prevInteract = false;
