@@ -101,6 +101,7 @@ public class PhysicsObject : MonoBehaviour {
 
 		}
 
-		rb2d.position = rb2d.position + move.normalized * distance;
+        Vector2 temp = move.normalized * distance;
+        gameObject.transform.localPosition += new Vector3(temp.x, temp.y, 0.0f);
 	}
 }

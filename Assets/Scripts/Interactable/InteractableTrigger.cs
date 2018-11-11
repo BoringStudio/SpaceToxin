@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractableTrigger : MonoBehaviour {
-    public Interactable InteractableObject = null;
+    private Interactable InteractableObject = null;
 
     void Start()
     {
