@@ -131,8 +131,8 @@ public class Pipe : MonoBehaviour {
         m_hingeJoints[SegmentCount].connectedBody = lastSegment;
 
         //
-        InteractablePipe[] interactables = GetComponentsInChildren<InteractablePipe>();
-        foreach (InteractablePipe interactablePipe in interactables)
+        PipeEnd[] interactables = GetComponentsInChildren<PipeEnd>();
+        foreach (PipeEnd interactablePipe in interactables)
         {
             interactablePipe.Pipe = this;
         }

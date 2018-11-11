@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractablePipe : Interactable {
+public class PipeEnd : Interactable {
     [HideInInspector]
     public Pipe Pipe;
 

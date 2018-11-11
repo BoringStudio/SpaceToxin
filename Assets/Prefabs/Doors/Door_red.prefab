@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 82262497884055892}
   - component: {fileID: 114848880972788112}
   - component: {fileID: 114403888733150082}
+  - component: {fileID: 114610616087559692}
   m_Layer: 0
   m_Name: Door_red
   m_TagString: Untagged
@@ -273,6 +274,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitiallyActivated: 1
+--- !u!114 &114610616087559692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1551200077889582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273e58de30f459749a70cbc945903a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GridSize: 0.25
 --- !u!114 &114848880972788112
 MonoBehaviour:
   m_ObjectHideFlags: 1

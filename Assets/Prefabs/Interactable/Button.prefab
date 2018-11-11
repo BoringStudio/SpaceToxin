@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 82798533430105108}
   - component: {fileID: 114924401141572992}
   - component: {fileID: 114156682867986130}
+  - component: {fileID: 114329453300754552}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -219,6 +220,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractableObject: {fileID: 0}
+--- !u!114 &114329453300754552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1370324813119846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273e58de30f459749a70cbc945903a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GridSize: 0.25
 --- !u!114 &114924401141572992
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 95383459678178840}
   - component: {fileID: 114063649494991568}
   - component: {fileID: 114867433680940744}
+  - component: {fileID: 114272345875663140}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -488,6 +489,18 @@ MonoBehaviour:
   Consumption: 0.05
   MaxRadius: 11
   m_safeDome: {fileID: 114923224867618852}
+--- !u!114 &114272345875663140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1293535039048004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273e58de30f459749a70cbc945903a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GridSize: 0.25
 --- !u!114 &114867433680940744
 MonoBehaviour:
   m_ObjectHideFlags: 1
