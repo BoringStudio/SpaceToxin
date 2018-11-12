@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour {
     public AudioClip IntroClip;
-    public AudioClip MainClip;
+    public AudioClip[] AudioClips;
+
+    private int m_currentClip = 0;
 
     private static MusicPlayer instance = null;
     public static MusicPlayer Instance
@@ -34,9 +36,25 @@ public class MusicPlayer : MonoBehaviour {
     public void StartMain()
     {
         AudioSource source = GetComponent<AudioSource>();
-        source.clip = MainClip;
+        source.clip = AudioClips[0];
         source.Stop();
         source.Play();
+
+
+    }
+
+    IEnumerator PlayNext()
+    {
+        AudioSource source = GetComponent<AudioSource>();
+        source.clip = AudioClips[m_currentClip];
+        source.Stop();
+        source.Play();
+
+        m_currentClip += m_currentClip % AudioClips.Length;
+
+        yield return new WaitForSeconds(source.clip.length);
+
+        PlayNext();
     }
 
     public void StartIntro()

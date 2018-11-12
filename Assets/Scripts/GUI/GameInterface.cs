@@ -11,7 +11,7 @@ public class GameInterface : MonoBehaviour
 
     public static GameInterface Instance;
 
-    void Start()
+    void Awake()
     {
         Assert.IsNull(Instance, "There must be only one instance of GameInterface");
 
