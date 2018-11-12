@@ -10145,11 +10145,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4548389083366842, guid: befb7919322ddff4896f9fd983e2cf70, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.6412964
+      value: -7.75
       objectReference: {fileID: 0}
     - target: {fileID: 4548389083366842, guid: befb7919322ddff4896f9fd983e2cf70, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.7443223
+      value: -5.75
       objectReference: {fileID: 0}
     - target: {fileID: 4548389083366842, guid: befb7919322ddff4896f9fd983e2cf70, type: 2}
       propertyPath: m_LocalPosition.z
@@ -15169,11 +15169,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4548389083366842, guid: befb7919322ddff4896f9fd983e2cf70, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -10.029981
       objectReference: {fileID: 0}
     - target: {fileID: 4548389083366842, guid: befb7919322ddff4896f9fd983e2cf70, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.33
+      value: -5.3955307
       objectReference: {fileID: 0}
     - target: {fileID: 4548389083366842, guid: befb7919322ddff4896f9fd983e2cf70, type: 2}
       propertyPath: m_LocalPosition.z
@@ -29056,6 +29056,11 @@ MonoBehaviour:
   InitiallyFilled: 1
   Consumption: 0.05
   MaxRadius: 11
+  EventsOnEmpty:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_safeDome: {fileID: 623677485}
 --- !u!95 &842955781
 Animator:
@@ -29791,6 +29796,11 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 48899134}
+    - target: {fileID: 20360168326623688, guid: bd61e13e3fc85584eaa3bf923db967e3,
+        type: 2}
+      propertyPath: orthographic size
+      value: 2.2135417
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd61e13e3fc85584eaa3bf923db967e3, type: 2}
   m_IsPrefabAsset: 0
@@ -44948,11 +44958,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4846108935492842, guid: 4c30338a1975a7e438478ef788f52545, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -10.029981
       objectReference: {fileID: 0}
     - target: {fileID: 4846108935492842, guid: 4c30338a1975a7e438478ef788f52545, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.25
+      value: -5.1455307
       objectReference: {fileID: 0}
     - target: {fileID: 4846108935492842, guid: 4c30338a1975a7e438478ef788f52545, type: 2}
       propertyPath: m_LocalPosition.z
@@ -49423,7 +49433,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level4
+          m_StringArgument: Level6
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -49578,7 +49588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bd6a37ca5b47e4c8b6685e1053276c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractableObject: {fileID: 0}
 --- !u!95 &1497332191
 Animator:
   serializedVersion: 3
@@ -52761,6 +52770,11 @@ MonoBehaviour:
   InitiallyFilled: 1
   Consumption: 0.05
   MaxRadius: 11
+  EventsOnEmpty:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_safeDome: {fileID: 70757618}
 --- !u!95 &1618491199
 Animator:
@@ -62391,7 +62405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bd6a37ca5b47e4c8b6685e1053276c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractableObject: {fileID: 0}
 --- !u!95 &1918451770
 Animator:
   serializedVersion: 3
@@ -67616,7 +67629,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  ProgressIndicator: {fileID: 0}
 --- !u!95 &2130570521
 Animator:
   serializedVersion: 3

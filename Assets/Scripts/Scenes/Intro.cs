@@ -16,7 +16,6 @@ public class Intro : MonoBehaviour {
 		yield return new WaitForSeconds (18.0f);
 
         if (!m_skipped) StartFirstLevel();
-
     }
 	
 	void Update ()

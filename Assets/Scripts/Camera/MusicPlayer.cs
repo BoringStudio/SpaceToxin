@@ -35,26 +35,22 @@ public class MusicPlayer : MonoBehaviour {
 
     public void StartMain()
     {
-        AudioSource source = GetComponent<AudioSource>();
-        source.clip = AudioClips[0];
-        source.Stop();
-        source.Play();
-
-
+        StartCoroutine(ClipsLoop());
     }
 
-    IEnumerator PlayNext()
+    IEnumerator ClipsLoop()
     {
-        AudioSource source = GetComponent<AudioSource>();
-        source.clip = AudioClips[m_currentClip];
-        source.Stop();
-        source.Play();
+        while (true)
+        {
+            AudioSource source = GetComponent<AudioSource>();
+            source.clip = AudioClips[m_currentClip];
+            source.Stop();
+            source.Play();
 
-        m_currentClip += m_currentClip % AudioClips.Length;
-
-        yield return new WaitForSeconds(source.clip.length);
-
-        PlayNext();
+            m_currentClip = (++m_currentClip) % AudioClips.Length;
+            
+            yield return new WaitForSeconds(source.clip.length);
+        }
     }
 
     public void StartIntro()
