@@ -45,34 +45,13 @@ public class Player : MonoBehaviour
         get { return CurrentHealth <= 0.0f; }
     }
 
-    [HideInInspector]
-	public Vector2 Anchor = new Vector2(0.01059294f, 0.2198076f);
-	public HingeJoint2D PipeHolder
-	{
-		get
-		{
-            m_pipeHolder.connectedAnchor = Vector2.zero;
-			if (m_pipeHolder != null) return m_pipeHolder;
-
-			m_pipeHolder = gameObject.AddComponent<HingeJoint2D>();
-			m_pipeHolder.anchor = Anchor;
-
-			return m_pipeHolder;
-		}
-		set
-		{
-			m_pipeHolder = value;
-		}
-	}
-	private HingeJoint2D m_pipeHolder = null;
-
 	[HideInInspector]
 	public Interactable CurrentInteractable = null;
 
     private AudioSource m_audioSource;
 
-    public DamageBar DamageHUD;
-    public HealthBar HPIndicator;
+    private HealthBar m_healthBar;
+    private DamageOverlay m_damageOverlay;
 
 	protected bool m_currentInteract = false;
 	protected bool m_prevInteract = false;
@@ -80,23 +59,17 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
         m_audioSource = GetComponent<AudioSource>();
+        m_healthBar = GameInterface.Instance.HealthBar;
+        m_damageOverlay = GameInterface.Instance.DamageOverlay;
 
         CurrentHealth = MaxHealth;
-
-        HingeJoint2D hingeJoint = GetComponent<HingeJoint2D>();
-		if (hingeJoint != null)
-		{
-            hingeJoint.autoConfigureConnectedAnchor = false;
-			Anchor = hingeJoint.anchor;
-			PipeHolder = hingeJoint;
-		}
 	}
 
 	private void Update()
 	{
-        if (HPIndicator != null)
+        if (m_healthBar)
         {
-            HPIndicator.UpdateHP(CurrentHealth, MaxHealth);
+            m_healthBar.UpdateHP(CurrentHealth, MaxHealth);
         }
 
         if (Input.GetButtonDown("Interact"))
@@ -136,9 +109,9 @@ public class Player : MonoBehaviour
             CurrentHealth = 0.0f;
         }
 
-        if (DamageHUD != null)
+        if (m_damageOverlay)
         {
-            DamageHUD.TakeDamage();
+            m_damageOverlay.TakeDamage();
         }
 
         if (m_audioSource != null && GettingDamageSounds != null && GettingDamageSounds.Length > 0 && Random.Range(0, 100) < 50)
