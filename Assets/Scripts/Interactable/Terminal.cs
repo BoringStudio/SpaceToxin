@@ -28,24 +28,21 @@ public class Terminal : Interactable
 
     public UnityEvent EventsOnFinished = null;
 
-    public ProgressBar ProgressIndicator;
-
     private Animator m_animator;
     private bool Working = false;
 
+    private ProgressBar m_progressBar;
+
     void Start ()
     {
+        m_progressBar = GameInterface.Instance.ProgressBar;
+
         m_animator = GetComponent<Animator>();
 
         Switch activator = GetComponent<Switch>();
 
         IsActicated = (activator == null ? true : activator.InitiallyActivated);
         activator.OnChangeState = (bool state) => { IsActicated = state; };
-
-        if (ProgressIndicator != null)
-        {
-            ProgressIndicator.gameObject.SetActive(false);
-        }
     }
 	
 	void Update ()
@@ -55,10 +52,10 @@ public class Terminal : Interactable
 
             Progress += Time.deltaTime;
 
-            if (ProgressIndicator != null)
+            if (m_progressBar)
             {
-                ProgressIndicator.gameObject.SetActive(true);
-                ProgressIndicator.UpdateProgress(Mathf.Clamp(Progress, 0.0f, 1.0f), 1.0f);
+                m_progressBar.gameObject.SetActive(true);
+                m_progressBar.UpdateProgress(Mathf.Clamp(Progress, 0.0f, 1.0f), 1.0f);
             }
 
             if (Progress >= 1.0f && EventsOnFinished != null)

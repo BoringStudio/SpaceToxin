@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -83,8 +84,11 @@ public class Generator : MonoBehaviour
     }
     private float m_fullness;
 
+    public UnityEvent EventsOnEmpty = null;
     
     private Animator m_animator;
+    private bool m_shouldInvokeEvents = true;
+
     public SafeDome m_safeDome;
 
     void Start()
@@ -107,6 +111,17 @@ public class Generator : MonoBehaviour
         if (IsWorking)
         {
             Fullness = Fullness - Time.deltaTime * Consumption;
+        }
+
+        if (Fullness == 0 && m_shouldInvokeEvents)
+        {
+            EventsOnEmpty.Invoke();
+            m_shouldInvokeEvents = false;
+        }
+
+        if (Fullness != 0 && !m_shouldInvokeEvents)
+        {
+            m_shouldInvokeEvents = true;
         }
     }
 
