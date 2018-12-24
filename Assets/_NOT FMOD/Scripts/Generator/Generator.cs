@@ -62,7 +62,7 @@ public class Generator : MonoBehaviour
             if (m_animator == null) return;
 
             m_animator.SetBool("Activated", m_isActivated);
-            m_animator.SetFloat("Speed", m_isActivated ? 1.0f : 0.0f);
+            m_animator.SetFloat("Speed", m_isActivated ? 1.0f : 0.0f);           
         }
     }
     private bool m_isActivated;
@@ -90,6 +90,7 @@ public class Generator : MonoBehaviour
     private bool m_shouldInvokeEvents = true;
 
     public SafeDome m_safeDome;
+
 
     void Start()
     {
@@ -132,4 +133,5 @@ public class Generator : MonoBehaviour
         float s = MaxRadius * (2.0f - 2.0f / (Fullness + 1));
         m_safeDome.transform.localScale = new Vector3(s, s, 0.0f);
     }
+
 }

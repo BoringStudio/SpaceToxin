@@ -29,7 +29,7 @@ public class Intro : MonoBehaviour {
     void StartFirstLevel()
     {
         m_skipped = true;
-        MusicPlayer.Instance.StartMain();
+        AudioManager.instance.MusicOne();
         SceneManager.LoadScene(FirstLevelName);
     }
 }

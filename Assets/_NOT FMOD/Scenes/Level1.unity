@@ -11443,9 +11443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646c5997857d1244384f1333f578e950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeactivatedSound: {fileID: 8300000, guid: 6d454ee17d62b104cac75d266cf28e1d, type: 3}
-  PressSound: {fileID: 8300000, guid: f1ce7be9937d5ea47ab2acbe07515c6c, type: 3}
-  ReleaseSound: {fileID: 8300000, guid: f154a80ec052e1c40836a4e359fee309, type: 3}
   Mode: 1
   InitiallyPressed: 0
   EventsOnPress:
@@ -14597,8 +14594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabeab3a47a1b8d45b1a7a3a1383fff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpeningSound: {fileID: 8300000, guid: 17f08a4c7bbffbf4b8812357108f9b0b, type: 3}
-  ClosingSound: {fileID: 8300000, guid: c8d665aa9d0432245829e6fb78771420, type: 3}
   InitiallyClosed: 1
 --- !u!82 &553725914
 AudioSource:
@@ -21689,6 +21684,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &719798254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1752414260833948, guid: bd61e13e3fc85584eaa3bf923db967e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 999037169}
+--- !u!114 &719798259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 719798254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!1 &721822622
 GameObject:
   m_ObjectHideFlags: 0
@@ -33603,8 +33615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabeab3a47a1b8d45b1a7a3a1383fff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpeningSound: {fileID: 8300000, guid: 17f08a4c7bbffbf4b8812357108f9b0b, type: 3}
-  ClosingSound: {fileID: 8300000, guid: c8d665aa9d0432245829e6fb78771420, type: 3}
   InitiallyClosed: 1
 --- !u!82 &862125967
 AudioSource:
@@ -45364,7 +45374,7 @@ Prefab:
     - target: {fileID: 20360168326623688, guid: bd61e13e3fc85584eaa3bf923db967e3,
         type: 2}
       propertyPath: orthographic size
-      value: 2.0507812
+      value: 1.9335938
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd61e13e3fc85584eaa3bf923db967e3, type: 2}
@@ -59167,9 +59177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646c5997857d1244384f1333f578e950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeactivatedSound: {fileID: 8300000, guid: 6d454ee17d62b104cac75d266cf28e1d, type: 3}
-  PressSound: {fileID: 8300000, guid: f1ce7be9937d5ea47ab2acbe07515c6c, type: 3}
-  ReleaseSound: {fileID: 8300000, guid: f154a80ec052e1c40836a4e359fee309, type: 3}
   Mode: 0
   InitiallyPressed: 0
   EventsOnPress:
@@ -60660,6 +60667,7 @@ GameObject:
   - component: {fileID: 1374312450}
   - component: {fileID: 1374312449}
   - component: {fileID: 1374312448}
+  - component: {fileID: 1374312452}
   m_Layer: 0
   m_Name: dome
   m_TagString: Untagged
@@ -60689,11 +60697,11 @@ AudioSource:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1374312446}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ea4ded240b54cfd4fa6c6ea41abfd0e3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
@@ -60836,6 +60844,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1374312452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1374312446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acbf6377a5958a41a7397db86e14eb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1375294280
 GameObject:
   m_ObjectHideFlags: 0
@@ -71889,8 +71908,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabeab3a47a1b8d45b1a7a3a1383fff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpeningSound: {fileID: 8300000, guid: 17f08a4c7bbffbf4b8812357108f9b0b, type: 3}
-  ClosingSound: {fileID: 8300000, guid: c8d665aa9d0432245829e6fb78771420, type: 3}
   InitiallyClosed: 0
 --- !u!82 &1458430833
 AudioSource:
@@ -76011,9 +76028,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646c5997857d1244384f1333f578e950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeactivatedSound: {fileID: 8300000, guid: 6d454ee17d62b104cac75d266cf28e1d, type: 3}
-  PressSound: {fileID: 8300000, guid: f1ce7be9937d5ea47ab2acbe07515c6c, type: 3}
-  ReleaseSound: {fileID: 8300000, guid: f154a80ec052e1c40836a4e359fee309, type: 3}
   Mode: 1
   InitiallyPressed: 0
   EventsOnPress:
@@ -78566,8 +78580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabeab3a47a1b8d45b1a7a3a1383fff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpeningSound: {fileID: 8300000, guid: 17f08a4c7bbffbf4b8812357108f9b0b, type: 3}
-  ClosingSound: {fileID: 8300000, guid: c8d665aa9d0432245829e6fb78771420, type: 3}
   InitiallyClosed: 1
 --- !u!82 &1792775151
 AudioSource:
@@ -79967,7 +79979,19 @@ Prefab:
       propertyPath: HPIndicator
       value: 
       objectReference: {fileID: 1354617228}
-    m_RemovedComponents: []
+    - target: {fileID: 81142255982296606, guid: 1e7fca456065e364eaf17d795ba5b6f8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82102960548032178, guid: 1e7fca456065e364eaf17d795ba5b6f8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 82102960548032178, guid: 1e7fca456065e364eaf17d795ba5b6f8, type: 2}
+    - {fileID: 81142255982296606, guid: 1e7fca456065e364eaf17d795ba5b6f8, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 1e7fca456065e364eaf17d795ba5b6f8, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1855332380

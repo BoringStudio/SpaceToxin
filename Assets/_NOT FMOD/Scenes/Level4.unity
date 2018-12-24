@@ -55322,9 +55322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646c5997857d1244384f1333f578e950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeactivatedSound: {fileID: 8300000, guid: 6d454ee17d62b104cac75d266cf28e1d, type: 3}
-  PressSound: {fileID: 8300000, guid: f1ce7be9937d5ea47ab2acbe07515c6c, type: 3}
-  ReleaseSound: {fileID: 8300000, guid: f154a80ec052e1c40836a4e359fee309, type: 3}
   Mode: 1
   InitiallyPressed: 0
   EventsOnPress:
@@ -56087,7 +56084,7 @@ Prefab:
     - target: {fileID: 20360168326623688, guid: bd61e13e3fc85584eaa3bf923db967e3,
         type: 2}
       propertyPath: orthographic size
-      value: 2.0507812
+      value: 1.9335938
       objectReference: {fileID: 0}
     - target: {fileID: 114897319026750266, guid: bd61e13e3fc85584eaa3bf923db967e3,
         type: 2}
@@ -56097,6 +56094,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd61e13e3fc85584eaa3bf923db967e3, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1804778038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1752414260833948, guid: bd61e13e3fc85584eaa3bf923db967e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1804778037}
+--- !u!114 &1804778039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1804778038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!1 &1829757736
 GameObject:
   m_ObjectHideFlags: 0
@@ -56311,9 +56325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646c5997857d1244384f1333f578e950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeactivatedSound: {fileID: 8300000, guid: 6d454ee17d62b104cac75d266cf28e1d, type: 3}
-  PressSound: {fileID: 8300000, guid: f1ce7be9937d5ea47ab2acbe07515c6c, type: 3}
-  ReleaseSound: {fileID: 8300000, guid: f154a80ec052e1c40836a4e359fee309, type: 3}
   Mode: 1
   InitiallyPressed: 0
   EventsOnPress:

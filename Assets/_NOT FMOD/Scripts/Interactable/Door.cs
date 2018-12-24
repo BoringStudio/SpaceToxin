@@ -26,8 +26,6 @@ public class DoorEditor : Editor
 
 [ExecuteInEditMode]
 public class Door : MonoBehaviour {
-    public AudioClip OpeningSound;
-    public AudioClip ClosingSound;
 
     [Header("Initial values")]
     public bool InitiallyClosed = true;
@@ -41,14 +39,8 @@ public class Door : MonoBehaviour {
         set
         {
             m_isClosed = value;
-            m_collision.enabled = value;
-
-            if (m_audioSource != null)
-            {
-                if (value && OpeningSound != null) m_audioSource.PlayOneShot(OpeningSound);
-                if (!value && ClosingSound != null) m_audioSource.PlayOneShot(ClosingSound);
-            }
-
+            m_collision.enabled = value;                   
+         
             if (m_animators == null || m_isActivated == false) return;
 
             foreach (Animator animator in m_animators)
@@ -70,15 +62,16 @@ public class Door : MonoBehaviour {
 
     private Collider2D m_collision;
     private Animator[] m_animators;
-    private AudioSource m_audioSource;
+
+    private FMOD.Studio.EventInstance openDoor;
+    private FMOD.Studio.EventInstance closeDoor;
+
 
     void Start()
     {
         m_collision = GetComponent<Collider2D>();
         m_animators = GetComponentsInChildren<Animator>();
-        m_audioSource = GetComponent<AudioSource>();
 
-        if (m_audioSource) m_audioSource.Stop();
 
         m_isActivated = true;
         IsClosed = InitiallyClosed;
@@ -91,10 +84,18 @@ public class Door : MonoBehaviour {
     public void Open()
     {
         IsClosed = false;
+        openDoor = FMODUnity.RuntimeManager.CreateInstance(FMODPaths.DOOR_OPEN);
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(openDoor, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        openDoor.start();
+        openDoor.release();
     }
 
     public void Close()
     {
         IsClosed = true;
+        closeDoor = FMODUnity.RuntimeManager.CreateInstance(FMODPaths.DOOR_CLOSED);
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(closeDoor, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        closeDoor.start();
+        closeDoor.release();
     }
 }

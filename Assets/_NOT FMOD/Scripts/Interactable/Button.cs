@@ -16,7 +16,7 @@ public class ButtonEditor : Editor
         DrawDefaultInspector();
 
         Button button = (Button)target;
-
+/*
         m_showSoundSelection = EditorGUILayout.Foldout(m_showSoundSelection, "Sounds");
         if (m_showSoundSelection)
         {
@@ -24,7 +24,7 @@ public class ButtonEditor : Editor
             button.PressSound = EditorGUILayout.ObjectField("Pressed", button.PressSound, typeof(AudioClip), true) as AudioClip;
             button.ReleaseSound = EditorGUILayout.ObjectField("Released", button.ReleaseSound, typeof(AudioClip), true) as AudioClip;
         }
-
+*/
 
         //////////
         if (button.Mode == ButtonMode.Push)
@@ -69,12 +69,6 @@ public enum ButtonMode
 
 public class Button : Interactable
 {
-    [HideInInspector]
-    public AudioClip DeactivatedSound;
-    [HideInInspector]
-    public AudioClip PressSound;
-    [HideInInspector]
-    public AudioClip ReleaseSound;
 
     [SerializeField]
     public ButtonMode Mode = ButtonMode.Push;
@@ -85,7 +79,6 @@ public class Button : Interactable
     public UnityEvent EventsOnRelease = null;
 
     private Animator m_animator;
-    private AudioSource m_audioSource;
 
     public bool IsActivated
     {
@@ -115,12 +108,9 @@ public class Button : Interactable
             if (m_isPressed != value)
             {
                 m_isPressed = value;
-
-                if (m_audioSource != null)
-                {
-                    if (value && PressSound != null) m_audioSource.PlayOneShot(PressSound);
-                    if (!value && ReleaseSound != null) m_audioSource.PlayOneShot(ReleaseSound);
-                }
+              
+                    if (value) FMODUnity.RuntimeManager.PlayOneShotAttached(FMODPaths.BUTTON_PRESSED, this.gameObject);
+                    if (!value) FMODUnity.RuntimeManager.PlayOneShotAttached(FMODPaths.BUTTON_RELEASED, this.gameObject);
 
                 m_animator.SetBool("Pressed", value);
             }
@@ -131,7 +121,6 @@ public class Button : Interactable
     void Start()
     {
         m_animator = GetComponent<Animator>();
-        m_audioSource = GetComponent<AudioSource>();
 
         IsActivated = true;
 
@@ -162,11 +151,8 @@ public class Button : Interactable
             if (!IsPressed && EventsOnRelease != null) EventsOnRelease.Invoke();
         }
         else
-        {
-            if (m_audioSource != null)
-            {
-                m_audioSource.PlayOneShot(DeactivatedSound);
-            }
+        {       
+                FMODUnity.RuntimeManager.PlayOneShotAttached(FMODPaths.BUTTON_DEACTIVATED, this.gameObject);        
         }
     }
 

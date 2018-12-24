@@ -15099,8 +15099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabeab3a47a1b8d45b1a7a3a1383fff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpeningSound: {fileID: 8300000, guid: 17f08a4c7bbffbf4b8812357108f9b0b, type: 3}
-  ClosingSound: {fileID: 8300000, guid: c8d665aa9d0432245829e6fb78771420, type: 3}
   InitiallyClosed: 1
 --- !u!82 &326423143
 AudioSource:
@@ -29089,9 +29087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646c5997857d1244384f1333f578e950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeactivatedSound: {fileID: 8300000, guid: 6d454ee17d62b104cac75d266cf28e1d, type: 3}
-  PressSound: {fileID: 8300000, guid: f1ce7be9937d5ea47ab2acbe07515c6c, type: 3}
-  ReleaseSound: {fileID: 8300000, guid: f154a80ec052e1c40836a4e359fee309, type: 3}
   Mode: 1
   InitiallyPressed: 0
   EventsOnPress:
@@ -30140,8 +30135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabeab3a47a1b8d45b1a7a3a1383fff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpeningSound: {fileID: 8300000, guid: 17f08a4c7bbffbf4b8812357108f9b0b, type: 3}
-  ClosingSound: {fileID: 8300000, guid: c8d665aa9d0432245829e6fb78771420, type: 3}
   InitiallyClosed: 1
 --- !u!82 &664675150
 AudioSource:
@@ -67408,6 +67401,11 @@ MonoBehaviour:
   InitiallyFilled: 1
   Consumption: 0.05
   MaxRadius: 11
+  EventsOnEmpty:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_safeDome: {fileID: 978514570}
 --- !u!95 &1181039112
 Animator:
@@ -67694,9 +67692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646c5997857d1244384f1333f578e950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeactivatedSound: {fileID: 8300000, guid: 6d454ee17d62b104cac75d266cf28e1d, type: 3}
-  PressSound: {fileID: 8300000, guid: f1ce7be9937d5ea47ab2acbe07515c6c, type: 3}
-  ReleaseSound: {fileID: 8300000, guid: f154a80ec052e1c40836a4e359fee309, type: 3}
   Mode: 1
   InitiallyPressed: 0
   EventsOnPress:
@@ -74591,9 +74586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646c5997857d1244384f1333f578e950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeactivatedSound: {fileID: 8300000, guid: 6d454ee17d62b104cac75d266cf28e1d, type: 3}
-  PressSound: {fileID: 8300000, guid: f1ce7be9937d5ea47ab2acbe07515c6c, type: 3}
-  ReleaseSound: {fileID: 8300000, guid: f154a80ec052e1c40836a4e359fee309, type: 3}
   Mode: 0
   InitiallyPressed: 0
   EventsOnPress:
@@ -76521,7 +76513,9 @@ Prefab:
       propertyPath: HPIndicator
       value: 
       objectReference: {fileID: 2004917009}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 82102960548032178, guid: 1e7fca456065e364eaf17d795ba5b6f8, type: 2}
+    - {fileID: 81142255982296606, guid: 1e7fca456065e364eaf17d795ba5b6f8, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 1e7fca456065e364eaf17d795ba5b6f8, type: 2}
   m_IsPrefabAsset: 0
 --- !u!212 &1383847995 stripped
@@ -93050,11 +93044,28 @@ Prefab:
     - target: {fileID: 20360168326623688, guid: bd61e13e3fc85584eaa3bf923db967e3,
         type: 2}
       propertyPath: orthographic size
-      value: 2.0507812
+      value: 1.9335938
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd61e13e3fc85584eaa3bf923db967e3, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1831665313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1752414260833948, guid: bd61e13e3fc85584eaa3bf923db967e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1831665312}
+--- !u!114 &1831665314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1831665313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!1 &1843078914
 GameObject:
   m_ObjectHideFlags: 0
@@ -94366,9 +94377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646c5997857d1244384f1333f578e950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeactivatedSound: {fileID: 8300000, guid: 6d454ee17d62b104cac75d266cf28e1d, type: 3}
-  PressSound: {fileID: 8300000, guid: f1ce7be9937d5ea47ab2acbe07515c6c, type: 3}
-  ReleaseSound: {fileID: 8300000, guid: f154a80ec052e1c40836a4e359fee309, type: 3}
   Mode: 1
   InitiallyPressed: 0
   EventsOnPress:
@@ -97142,8 +97150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabeab3a47a1b8d45b1a7a3a1383fff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpeningSound: {fileID: 8300000, guid: 17f08a4c7bbffbf4b8812357108f9b0b, type: 3}
-  ClosingSound: {fileID: 8300000, guid: c8d665aa9d0432245829e6fb78771420, type: 3}
   InitiallyClosed: 1
 --- !u!114 &2045309412
 MonoBehaviour:

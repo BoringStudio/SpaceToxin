@@ -21,7 +21,6 @@ public class PlayerEditor : Editor
 
 public class Player : MonoBehaviour
 {
-    public AudioClip[] GettingDamageSounds;
 
     [HideInInspector]
     public SafeDome CurrentSafeZone = null;
@@ -48,7 +47,6 @@ public class Player : MonoBehaviour
 	[HideInInspector]
 	public Interactable CurrentInteractable = null;
 
-    private AudioSource m_audioSource;
 
     private HealthBar m_healthBar;
     private DamageOverlay m_damageOverlay;
@@ -58,7 +56,6 @@ public class Player : MonoBehaviour
 
 	private void Start()
 	{
-        m_audioSource = GetComponent<AudioSource>();
         m_healthBar = GameInterface.Instance.HealthBar;
         m_damageOverlay = GameInterface.Instance.DamageOverlay;
 
@@ -113,10 +110,10 @@ public class Player : MonoBehaviour
         {
             m_damageOverlay.TakeDamage();
         }
-
-        if (m_audioSource != null && GettingDamageSounds != null && GettingDamageSounds.Length > 0 && Random.Range(0, 100) < 50)
+      
+        if (Random.Range(0, 100) < 50)
         {
-            m_audioSource.PlayOneShot(GettingDamageSounds[Random.Range(0, GettingDamageSounds.Length)]);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODPaths.COUGH, this.gameObject);
         }
     }
 
