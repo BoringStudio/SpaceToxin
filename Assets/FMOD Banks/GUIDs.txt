@@ -1,0 +1,14 @@
+{a9140383-6f7e-47e6-a2c9-d57eba7efb3e} event:/game/button_deactivated
+{263637b9-0a24-4fd6-b191-d0d3b9835fa0} event:/game/button_pressed
+{75d9bb63-5250-4143-a89e-ecb1a01954c9} event:/game/button_released
+{f565b6b8-2b7b-476f-9eca-d2835a143b25} event:/game/door_closed
+{14dcadc7-0dc9-4ce1-86c9-573168f4d2c1} event:/game/door_open
+{4af5b57f-1dc2-4684-b547-cc8a9c0eb1a5} event:/game/generator
+{33bcd925-7a96-4dc1-ab41-0e93f9c78a95} event:/music/intro
+{1be24e63-cfe6-48c3-86ec-91e92695b739} event:/music/main_theme
+{84f5785e-89ca-4529-ac1a-17acee8adc67} event:/music/second_theme
+{896d541e-13ae-47ac-b653-3ed68704129e} event:/player/cough
+{6fb91523-6b88-4fdf-8ed5-772f35c1b68b} bus:/
+{9d01b619-631f-4c67-9b33-264573323eed} bus:/music
+{a40bdd6e-e5fc-4d75-aa70-151881f68e94} bus:/Reverb
+{f2e5011e-791e-468c-a326-5ae894fd4a72} bank:/Master Bank
